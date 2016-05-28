@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compress</title>
+  <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+  <style>
+  .qa {
+    box-sizing: border-box;
+    padding: 20px 20px;
+    background-color: rgb(254, 196, 152);
+    margin-bottom: 20px;
+  }
+  .qa h2 {
+    margin-top: 0;
+  }
+  /*#questions {
+    text-align: center;
+  }*/
+  </style>
+</head>
+<body>
+  <section id="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Compress</h1>
+          <p>
+            A quick flow for compressing images, finding applicable tools and discovering alternative methods for compression
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="questions">
+    <div class="container">
+
+      <div class="row qa question" id="question-canVector">
+        <div class="col-md-12">
+          <h2>Can the image be a Vector?</h2>
+          <a href="#question-isVector" class="btn btn-default btn-success">Yes</a>
+          <a href="#question-webp" class="btn btn-default btn-danger">No</a>
+        </div>
+      </div>
+
+      <div class="row qa question" id="question-isVector">
+        <div class="col-md-12">
+          <h2>Is it already a Vector?</h2>
+          <a href="#answer-minifyVector" class="btn btn-default btn-success">Yes</a>
+          <a href="#answer-trace" class="btn btn-default btn-danger">No</a>
+        </div>
+      </div>
+
+      <div class="row qa answer" id="answer-minifyVector">
+        <div class="col-md-12">
+          <h2>It is already a Vector</h2>
+          <ul>
+            <li><a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a> - Online interface for SVGO - minify svg</li>
+            <li><a href="https://github.com/svg/svgo">SVGO</a> - NodeJS tool for optimising SVG files</li>
+            <li><a href="https://compressor.io/">Compressor.io</a> - Generic online tool for shrinking images (including SVG)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row qa answer" id="answer-trace">
+        <div class="col-md-12">
+          <h2>Not a vector - Trace the rastarized graphic into a Vector</h2>
+          <ul>
+            <li><a href="http://potrace.sourceforge.net/">PoTrace</a> - Cross platofrm &amp; Open source command line program to convert bitmapped images into vectors</li>
+            <li><a href="http://www.vectorizer.io/">Vectorizer.io</a> - Online tool for tracing reastarised images to vector (Good amount of settings e.g. tolerances, bluring and layers)</li>
+            <li><a href="http://vectormagic.com/">VectorMagic</a> - Adobe Flash or Desktop software for converting rastarised images to vector</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row qa question" id="question-webp">
+        <div class="col-md-12">
+          <h2>Can WebP be used ?</h2>
+          <a href="#question-png" class="btn btn-default btn-danger">No</a>
+        </div>
+      </div>
+
+      <div class="row qa question" id="question-png">
+        <div class="col-md-12">
+          <h2>PNG if <strong>transparent</strong> or <strong>simple</strong></h2>
+          <p>
+            If the image requires transparancy/opacity, PNG is prefered over GIF (unless IE6 support is needed)
+          </p>
+          <p>
+            PNG can also produce a smaller file size compared to JPG if the image contains simple information e.g. a logo, or a diagram
+          </p>
+          <a href="#answer-png" class="btn btn-default btn-primary">PNG</a>
+          <a href="#answer-jpg" class="btn btn-default btn-primary">JPG</a>
+        </div>
+      </div>
+
+      <div class="row qa answer" id="answer-png">
+        <div class="col-md-12">
+          <h2>PNG</h2>
+          <ul>
+            <li><a href="https://compressor.io/">Compressor.io</a> - Generic online tool for shrinking images</li>
+            <li><a href="https://pngquant.org/">PngQuant</a> - Command-line utility and library for lossy compression (can be integrated into workflow/build-tool e.g. <a href="https://github.com/imagemin/imagemin">ImageMin</a>)</li>
+            <li>Photoshop (Save for web) - Try reducing number of colours and bitmap if possible</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row qa answer" id="answer-jpg">
+        <div class="col-md-12">
+          <h2>JPG</h2>
+          <ul>
+            <li>Lossy (May lose some image quality for much smaller filesize, while the image still being acceptable quality)
+              <ul>
+                <li><a href="http://www.jpegmini.com/">JPEGMini</a>(Note: Paid for service) - Desktop Software, Adobe Extension &amp; Service/Command-line application</li>
+                <li><a href="https://github.com/mozilla/mozjpeg">MozJpeg</a> - Contains command-line utility for optimising images(cjpeg)(Note: NodeJS <a href="https://github.com/imagemin/imagemin">ImageMin</a> uses this)</li>
+              </ul>
+            </li>
+            <li>Lossless (No image quality should be lost, can normally be done by removing meta info, or improving how the information is stored)
+              <ul>
+                <li><a href="http://jpegclub.org/jpegtran/">JpegTran</a>(Note: Bundled with MozJpeg) - Command-line utility for jpegs includes compression and transforming(e.g. rotating, cropping and scaling)</li>
+                <li><a href="https://code.google.com/archive/p/jpeglib/source/default/source">Google - JpegLib</a> - Tool google uses for PageSpeed website</li>
+              </ul>
+            </li>
+            <li>Photoshop (Save for web) - Try reducing the quality</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>

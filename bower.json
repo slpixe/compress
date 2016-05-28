@@ -1,0 +1,25 @@
+{
+  "name": "compress",
+  "authors": [
+    "Slpixe <slpixe@gmail.com>"
+  ],
+  "description": "KB for compressing stuff",
+  "main": "index.html",
+  "keywords": [
+    "compress"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}
